@@ -17,6 +17,10 @@ const animation = keyframes`
   border-radius: 0px;
   }
 `;
+
+const Emoji = styled.span`
+  font-size: 36px;
+`;
 const Box = styled.div`
   height: 200px;
   width: 200px;
@@ -25,15 +29,11 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
   animation: ${animation} 1s linear infinite;
-  span {
+  ${Emoji} {
     // Box안의 span을 targeting 할 수 있다.
-    font-size: 36px;
     &:hover {
       // &의 의미 : span:hover
-      font-size: 40px;
-    }
-    &:active {
-      opacity: 0;
+      font-size: 98px;
     }
   }
 `;
@@ -42,7 +42,7 @@ function App() {
   return (
     <Wrapper>
       <Box />
-      <span>😍</span>
+      <Emoji as="p">😍</Emoji>
     </Wrapper>
   );
 }
