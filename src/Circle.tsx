@@ -7,7 +7,6 @@ interface ContainerProps {
 interface CircleProps {
   bgColor: string;
   borderColor?: string; // optional
-  text?: string;
 }
 
 const Container = styled.div<ContainerProps>`
@@ -18,12 +17,9 @@ const Container = styled.div<ContainerProps>`
   border: 1px solid ${(props) => props.borderColor};
 `;
 
-function Circle({ bgColor, borderColor, text = "default text" }: CircleProps) {
-  return (
-    <Container bgColor={bgColor} borderColor={borderColor ?? bgColor}>
-      {text}
-    </Container>
-  );
+function Circle({ bgColor, borderColor }: CircleProps) {
+  const [counter, setCounter] = useState<number | string>(0);
+  return <Container bgColor={bgColor} borderColor={borderColor ?? bgColor} />;
   // ??연산자로 default값 지정. borderColor가 없다면 오른쪽의 bgColor가 borderColor가 된다.
 }
 
